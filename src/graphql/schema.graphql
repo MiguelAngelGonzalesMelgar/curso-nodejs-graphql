@@ -1,0 +1,24 @@
+type Query {
+    hello: String!
+    getPerson(name: String, age: Int): String
+    getInt(age: Int!): Int
+    getFloat(price: Float): Float
+    getString: String
+    getBoolean: Boolean
+    getID: ID
+    getNumbers(numbers: [Int!]!): [Int]
+    
+    # Products
+    product: Product!
+    products: [Product!]!
+}
+
+# Custom Typing
+type Product {
+  id: ID!
+  name: String!
+  price: Float!
+  description: String!
+  image: String!
+  createdAt: String!
+}
