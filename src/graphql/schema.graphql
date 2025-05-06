@@ -9,8 +9,13 @@ type Query {
     getNumbers(numbers: [Int!]!): [Int]
     
     # Products
-    product: Product!
+    product(id: ID): Product
     products: [Product!]!
+}
+
+# Mutations
+type Mutation {
+  addProduct(name: String!, price: Int!, description: String!, image: String! ): Product
 }
 
 # Custom Typing

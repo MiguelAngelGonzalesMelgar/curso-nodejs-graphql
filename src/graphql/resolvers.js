@@ -12,8 +12,8 @@ const resolvers = {
     getNumbers: (_, args) => args.numbers,
 
     // Product
-    getProduct,
-    getProducts
+    product: getProduct,
+    products: getProducts
   }
 }
 
