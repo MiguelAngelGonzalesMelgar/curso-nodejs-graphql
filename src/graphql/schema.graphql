@@ -16,6 +16,8 @@ type Query {
 # Mutations
 type Mutation {
   addProduct(dto: CreateProductInput!): Product
+  updateProduct(id: ID!, dto: UpdateProductInput!): Product
+  deleteProduct(id: ID!): ID
 }
 
 # Custom Typing
@@ -36,4 +38,12 @@ input CreateProductInput {
   String!, 
   image: String!,
   categoryId: ID!
+}
+
+input UpdateProductInput {
+  name: String, 
+  price: Int, 
+  description: String, 
+  image: String,
+  categoryId: ID
 }

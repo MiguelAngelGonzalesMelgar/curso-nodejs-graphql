@@ -1,25 +1,37 @@
 const ProductService = require("../services/product.service");
 const service = new ProductService();
 
-
-const getProduct = async (_, {id}) => {
-  const product = await service.findOne(id);
-  return product
+/**
+ * Thanks to apollo server we are able to return a promis
+ * without the use of async await.
+ * GraphQl is great handling promises, particullary Apollo Server.
+ */
+const getProduct = (_, {id}) => {
+  return service.findOne(id);
 };
 
 const getProducts = async () => {
-  const products = await service.find({});
-  return products;
+
+  return service.find({});
 };
 
-const addProduct = async(_, { dto }) => {
-  const newProduct = await service.create(dto)
-  return newProduct
+const addProduct = (_, { dto }) => {
+  return service.create(dto);
 }
 
+const updateProduct = (_, { id, dto }) => {
+  return service.update(id, dto);
+}
+
+const deleteProduct = async (_, { id }) => {
+  await service.delete(id);
+  return id;
+}
 
 module.exports = {
   getProduct,
   getProducts,
-  addProduct
+  addProduct,
+  updateProduct,
+  deleteProduct
 }
