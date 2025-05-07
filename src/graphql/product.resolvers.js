@@ -12,7 +12,14 @@ const getProducts = async () => {
   return products;
 };
 
+const addProduct = async(_, { dto }) => {
+  const newProduct = await service.create(dto)
+  return newProduct
+}
+
+
 module.exports = {
   getProduct,
-  getProducts
+  getProducts,
+  addProduct
 }

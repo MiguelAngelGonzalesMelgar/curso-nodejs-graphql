@@ -15,7 +15,7 @@ type Query {
 
 # Mutations
 type Mutation {
-  addProduct(name: String!, price: Int!, description: String!, image: String! ): Product
+  addProduct(dto: CreateProductInput!): Product
 }
 
 # Custom Typing
@@ -26,4 +26,14 @@ type Product {
   description: String!
   image: String!
   createdAt: String!
+}
+
+# Input, for grouping arguments(dtos)
+input CreateProductInput {
+  name: String!, 
+  price: Int!, 
+  description: 
+  String!, 
+  image: String!,
+  categoryId: ID!
 }
